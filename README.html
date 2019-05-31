@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta name="generator" content="HTML::TextToHTML v2.51"/>
+</head>
+<body>
+<p>
+<h4>
+	<h3>These NEURON + Python scripts associated with paper:</h3><br/>
+    Ruben A. Tikidji-Hamburyan, Joan Jose Martinez, John A. White, Carmen C. Canavier<br/>
+    Resonant interneurons can increase robustness of gamma oscillations<br/>
+    <i>J Neuroscience 2015 35(47): 15682-15695; doi: 10.1523/JNEUROSCI.2601-15.2015</i><br/>
+</h4>
+ 
+</p><hr/>
+
+<p>To use this scripts you need python libraries:
+<ol>
+	<li><a ref="http://www.numpy.org">numpy</a></li>
+	<li><a ref="http://www.scipy.org">scipy</a></li>
+	<li><a ref="http://matplotlib.org">matplotlib</a> and LaTeX for correct graphical interface</li>
+</ol>
+Under <u>Ubuntu</u> or any other <u>Debian</u> based Linux, run <b>sudo apt-get install python-numpy python-scipy python-matplotlib texlive-full</b>.
+You can use yum or zymm under RadHad or SUSE based Linux distributions.
+</p><hr/>
+<p> To run simulations the network of resonators:
+<ol>
+ <li><b>cd resonator</b></li>
+ <li><b>nrnivmodl</b></li>
+ <li><b>nrngui -nogui -python network.py --help</b></li>
+</ol>
+ Last command prints out a short HOWTO and the list of parameters on screen, but does <b>not</b> run simulation. You can use printed parameters to replicate Figures in the paper.
+</p>
+<p> For example, to replicate Figure 4 run:<br/>
+  <b>nrngui -nogui -python network.py -Iapp=0.15e-5 -gsyn=3e-7 -nstart='(900.,0.21e-5,1000)' -Istd=0 -gui -view </b><br/>
+  <img src="Figure4.jpg" width="50%" alt="Figure 4" align="center">
+</p>
+<p>
+ or to replicate Figure 9C3 run:<br/>
+  <b>nrngui -nogui -python network.py -Istd=0 -Iapp=0.2e-5 -gsyn=0.005e-5 -delay=1 -view -gui -tstop=5000 -F=1,0.1125 -c=299 -Vinit=-65 -sort=F</b><br/>
+  <img src="Figure9C3.jpg" width="50%" alt="Figure 4" align="center">
+</p>
+<hr/>
+ 
+<p> To run simulations the network of integrators:
+<ol>
+	<li><b>cd integrator</b></li>
+	<li><b>nrnivmodl</b></li>
+	<li><b>nrngui -nogui -python network.py --help</b></li>
+</ol>
+Again last one will print out short HOWTO.
+ </p>
+ <p> For example,  to replicate Figure 9C1 run:<br/>
+  <b>nrngui -nogui -python -isatty network.py -Istd=0 -Iapp=0.0005,4.5e-5 -gsyn=1e-7 -delay=1 -view -gui -tstop=5000 -c=299 -Vinit=-65 </b><br/>
+  <img src="Figure9C1.jpg" width="50%" alt="Figure 4" align="center">
+  </p>
+  <p>
+ and to replicate Figure 9C2 run:<br/>
+  <b>nrngui -nogui -python -isatty network.py -Istd=0 -Iapp=0.0005,4.5e-5 -gsyn=1.25e-5 -delay=1 -view -gui -tstop=5000 -c=299 -Vinit=-65 </b><br/>
+  <img src="Figure9C2.jpg" width="50%" alt="Figure 4" align="center">
+</p>
+
+</body>
+</html>
